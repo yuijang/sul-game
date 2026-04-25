@@ -1,0 +1,198 @@
+:root {
+    --bg-color: #f0f9ff;
+    --primary-color: #ff6b6b;
+    --secondary-color: #4ecdc4;
+    --accent-color: #ffe66d;
+    --text-color: #2d3436;
+    --card-bg: #ffffff;
+    --shadow: 0 8px 15px rgba(0,0,0,0.1);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 600px;
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    text-align: center;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.subtitle {
+    color: #636e72;
+    margin-bottom: 30px;
+    font-weight: 500;
+}
+
+.screen {
+    display: none;
+}
+
+.screen.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Character Grid */
+.character-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.animal-item {
+    font-size: 2.5rem;
+    padding: 15px;
+    background: #f1f2f6;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 3px solid transparent;
+    user-select: none;
+}
+
+.animal-item:hover {
+    transform: scale(1.1);
+    background: #e1e2e6;
+}
+
+.animal-item.selected {
+    background: var(--accent-color);
+    border-color: var(--primary-color);
+    transform: scale(1.1);
+    animation: bounce 0.5s infinite alternate;
+}
+
+@keyframes bounce {
+    from { transform: scale(1.1) translateY(0); }
+    to { transform: scale(1.1) translateY(-5px); }
+}
+
+/* Buttons */
+.main-btn, .secondary-btn {
+    padding: 15px 40px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: inherit;
+}
+
+.main-btn {
+    background: var(--primary-color);
+    color: white;
+    box-shadow: 0 6px 0 #d64545;
+}
+
+.main-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #d64545;
+}
+
+.secondary-btn {
+    background: var(--secondary-color);
+    color: white;
+    box-shadow: 0 6px 0 #3da59e;
+    margin-top: 20px;
+}
+
+.secondary-btn:active {
+    transform: translateY(4px);
+    box-shadow: 0 2px 0 #3da59e;
+}
+
+/* Race Tracks */
+.tracks-container {
+    padding: 20px 0;
+    position: relative;
+    text-align: left;
+}
+
+.track {
+    height: 60px;
+    background: #f1f2f6;
+    margin: 10px 0;
+    border-radius: 30px;
+    display: flex;
+    align-items:center;
+    padding: 0 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.track::after {
+    content: '';
+    position: absolute;
+    right: 50px;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: repeating-linear-gradient(
+        transparent,
+        transparent 5px,
+        #ddd 5px,
+        #ddd 10px
+    );
+}
+
+.runner {
+    font-size: 2rem;
+    position: absolute;
+    left: 10px;
+    z-index: 2;
+}
+
+/* Result Card */
+.result-card {
+    padding: 20px;
+}
+
+.loser-emoji {
+    font-size: 6rem;
+    margin-bottom: 20px;
+    animation: wobble 1s infinite;
+}
+
+@keyframes wobble {
+    0% { transform: rotate(0deg); }
+    25% { transform: rotate(-10deg); }
+    75% { transform: rotate(10deg); }
+    100% { transform: rotate(0deg); }
+}
+
+#result-message {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}

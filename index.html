@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>동물 달리기 - Drink Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🐢 동물 달리기</h1>
+            <p class="subtitle">마지막에 도착하는 동물이 술래!</p>
+        </header>
+
+        <!-- Selection Screen -->
+        <div id="selection-screen" class="screen active">
+            <div class="character-grid" id="animal-grid"></div>
+            <div class="controls">
+                <button id="start-btn" class="main-btn">경기 시작!</button>
+            </div>
+        </div>
+
+        <!-- Race Screen -->
+        <div id="race-screen" class="screen">
+            <div id="race-tracks" class="tracks-container"></div>
+            <div class="finish-line"></div>
+        </div>
+
+        <!-- Result Screen -->
+        <div id="result-screen" class="screen">
+            <div class="result-card">
+                <div id="loser-display" class="loser-emoji"></div>
+                <h2 id="result-message">패배자 당첨!</h2>
+                <button id="reset-btn" class="secondary-btn">다시 하기</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
