@@ -81,17 +81,27 @@
             transform: scale(0.98);
         }
 
+        /* External Image Icon Style */
+        .game-icon {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            margin-right: 20px;
+            flex-shrink: 0;
+        }
+
+        /* Default Emoji/Icon Style for other items */
         .card-icon {
-            width: 64px;
-            height: 64px;
-            border-radius: 18px;
+            width: 45px; /* Unified size with game-icon */
+            height: 45px;
+            border-radius: 12px;
             margin-right: 20px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 32px;
+            font-size: 24px;
             flex-shrink: 0;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .card-info {
@@ -111,14 +121,6 @@
             color: var(--text-sub); 
             margin-top: 4px; 
         }
-
-        /* Icons Colors */
-        .icon-1 { background: linear-gradient(135deg, #FF6B6B, #EE5253); }
-        .icon-2 { background: linear-gradient(135deg, #4834D4, #686DE0); }
-        .icon-3 { background: linear-gradient(135deg, #6AB04C, #BAD002); }
-        .icon-4 { background: linear-gradient(135deg, #F0932B, #FFBE76); }
-        .icon-5 { background: linear-gradient(135deg, #1dd1a1, #10ac84); }
-        .icon-6 { background: linear-gradient(135deg, #5f27cd, #341f97); }
 
         /* Animation for list items */
         .game-card {
@@ -155,42 +157,43 @@
 
         <div class="game-list">
             <div class="game-card">
-                <div class="card-icon icon-1">🦊</div>
+                <img src="https://raw.githubusercontent.com/yuijang/sul-game/main/sul-game.ghdfls122.workers.dev/image/ani%20race.PNG" alt="Animal Race" class="game-icon">
                 <div class="card-info">
                     <p class="title">Animal Race</p>
                     <p class="subtitle">Last place drinks</p>
                 </div>
             </div>
             <div class="game-card">
-                <div class="card-icon icon-2">🪜</div>
+                <div class="card-icon">🪜</div>
                 <div class="card-info">
                     <p class="title">Ladder Pick</p>
                     <p class="subtitle">Random result</p>
                 </div>
             </div>
             <div class="game-card">
-                <div class="card-icon icon-3">🐊</div>
+                <div class="card-icon">🐊</div>
                 <div class="card-info">
                     <p class="title">Crocodile Teeth</p>
                     <p class="subtitle">Don’t get bitten</p>
                 </div>
             </div>
             <div class="game-card">
-                <div class="card-icon icon-4">🎈</div>
+                <div class="icon balloon"></div>
+                <div class="card-icon">🎈</div>
                 <div class="card-info">
                     <p class="title">Balloon Pop</p>
                     <p class="subtitle">Last to pop drinks</p>
                 </div>
             </div>
             <div class="game-card">
-                <div class="card-icon icon-5">🎰</div>
+                <div class="card-icon">🎰</div>
                 <div class="card-info">
                     <p class="title">Slot Machine</p>
                     <p class="subtitle">3 beers = drink</p>
                 </div>
             </div>
             <div class="game-card">
-                <div class="card-icon icon-6">🃏</div>
+                <div class="card-icon">🃏</div>
                 <div class="card-info">
                     <p class="title">Card Game</p>
                     <p class="subtitle">Pick the beer card</p>
