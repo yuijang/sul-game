@@ -1,151 +1,292 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Drinky Game</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drinky Game - UI Asset Sheet</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-dark: #0F0F0F;
+            --bg-light: #1A1A1A;
+            --card-bg: #1F1F1F;
+            --text-main: #FFFFFF;
+            --text-sub: #BBBBBB;
+            --accent-gradient: linear-gradient(180deg, #FFD700 0%, #FF8C00 100%);
+        }
 
-<style>
-body {
-  margin: 0;
-  font-family: 'Arial', sans-serif;
-  background: linear-gradient(#0F0F0F, #1A1A1A);
-  color: #fff;
-}
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Quicksand', sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark), var(--bg-light));
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+        }
 
-.container {
-  max-width: 420px;
-  margin: 0 auto;
-  padding: 20px;
-}
+        .presentation-canvas {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 40px;
+            gap: 60px;
+        }
 
-/* Header */
-.header {
-  text-align: center;
-  font-size: 28px;
-  font-weight: bold;
-  margin-bottom: 20px;
-}
+        /* Left Side: Smartphone Mockup */
+        .mockup-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            perspective: 1000px;
+        }
 
-/* Game List */
-.game-list {
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
+        .iphone-mockup {
+            width: 320px;
+            height: 650px;
+            background: #000;
+            border-radius: 40px;
+            border: 8px solid #333;
+            position: relative;
+            box-shadow: 0 50px 100px rgba(0,0,0,0.8);
+            overflow: hidden;
+        }
 
-/* Card */
-.card {
-  display: flex;
-  align-items: center;
-  background: #1F1F1F;
-  border-radius: 20px;
-  padding: 16px;
-  cursor: pointer;
-  transition: transform 0.1s ease, background 0.2s;
-}
+        /* Phone Screen Content */
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #111;
+            overflow-y: auto;
+            padding: 20px;
+            box-sizing: border-box;
+            scrollbar-width: none;
+        }
+        .phone-screen::-webkit-scrollbar { display: none; }
 
-.card:hover {
-  transform: scale(1.02);
-  background: #2A2A2A;
-}
+        .phone-header {
+            text-align: center;
+            margin: 40px 0 30px;
+        }
 
-/* Icon */
-.icon {
-  width: 60px;
-  height: 60px;
-  background: #333;
-  border-radius: 16px;
-  margin-right: 16px;
-}
+        .game-title {
+            font-size: 32px;
+            font-weight: 700;
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(255, 140, 0, 0.4));
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-/* Text */
-.text {
-  display: flex;
-  flex-direction: column;
-}
+        .game-list {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
 
-.title {
-  font-size: 18px;
-  font-weight: bold;
-}
+        .game-card {
+            display: flex;
+            align-items: center;
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 14px;
+            transition: background 0.2s;
+        }
 
-.subtitle {
-  font-size: 14px;
-  color: #BBBBBB;
-  margin-top: 4px;
-}
-</style>
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            margin-right: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
 
+        .card-info .title { font-size: 16px; font-weight: 700; margin: 0; }
+        .card-info .subtitle { font-size: 12px; color: var(--text-sub); margin-top: 2px; }
+
+        /* Icons Colors */
+        .icon-1 { background: linear-gradient(135deg, #FF6B6B, #EE5253); }
+        .icon-2 { background: linear-gradient(135deg, #4834D4, #686DE0); }
+        .icon-3 { background: linear-gradient(135deg, #6AB04C, #BAD002); }
+        .icon-4 { background: linear-gradient(135deg, #F0932B, #FFBE76); }
+
+        /* Dynamic Island */
+        .dynamic-island {
+            width: 100px;
+            height: 25px;
+            background: #000;
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 20px;
+            z-index: 10;
+        }
+
+        /* Right Side: Asset Info */
+        .asset-details {
+            flex: 1;
+        }
+
+        .section-tag {
+            font-size: 14px;
+            color: #FF8C00;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .main-heading {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            line-height: 1.1;
+        }
+
+        .description {
+            color: var(--text-sub);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            font-size: 18px;
+        }
+
+        .ui-specs {
+            display: flex;
+            gap: 40px;
+        }
+
+        .spec-item .label {
+            font-size: 12px;
+            color: #555;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .color-palette {
+            display: flex;
+            gap: 10px;
+        }
+
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            border: 1px solid #333;
+        }
+
+        @media (max-width: 900px) {
+            .presentation-canvas {
+                flex-direction: column;
+                text-align: center;
+                padding: 20px;
+            }
+            .ui-specs { justify-content: center; }
+        }
+    </style>
 </head>
-
 <body>
 
-<div class="container">
+    <div class="presentation-canvas">
+        
+        <!-- Left: Phone Mockup -->
+        <div class="mockup-container">
+            <div class="iphone-mockup">
+                <div class="dynamic-island"></div>
+                <div class="phone-screen">
+                    <header class="phone-header">
+                        <h1 class="game-title">DRINKY GAME</h1>
+                    </header>
 
-  <div class="header">DRINKY GAME</div>
+                    <div class="game-list">
+                        <div class="game-card">
+                            <div class="card-icon icon-1">🦊</div>
+                            <div class="card-info">
+                                <p class="title">Animal Race</p>
+                                <p class="subtitle">Last place drinks</p>
+                            </div>
+                        </div>
+                        <div class="game-card">
+                            <div class="card-icon icon-2">🪜</div>
+                            <div class="card-info">
+                                <p class="title">Ladder Pick</p>
+                                <p class="subtitle">Random result</p>
+                            </div>
+                        </div>
+                        <div class="game-card">
+                            <div class="card-icon icon-3">🐊</div>
+                            <div class="card-info">
+                                <p class="title">Crocodile Teeth</p>
+                                <p class="subtitle">Don’t get bitten</p>
+                            </div>
+                        </div>
+                        <div class="game-card">
+                            <div class="card-icon icon-4">🎈</div>
+                            <div class="card-info">
+                                <p class="title">Balloon Pop</p>
+                                <p class="subtitle">Last to pop drinks</p>
+                            </div>
+                        </div>
+                        <div class="game-card">
+                            <div class="card-icon icon-1">🎰</div>
+                            <div class="card-info">
+                                <p class="title">Slot Machine</p>
+                                <p class="subtitle">3 beers = drink</p>
+                            </div>
+                        </div>
+                        <div class="game-card">
+                            <div class="card-icon icon-2">🃏</div>
+                            <div class="card-info">
+                                <p class="title">Card Game</p>
+                                <p class="subtitle">Pick the beer card</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-  <div class="game-list">
+        <!-- Right: Presentation Content -->
+        <div class="asset-details">
+            <div class="section-tag">UI/UX CASE STUDY</div>
+            <h2 class="main-heading">Create a high-quality mobile game UI asset sheet presentation.</h2>
+            <p class="description">
+                A modern, dark-themed game selection interface designed for party gaming. 
+                Focusing on high contrast, playful icons, and intuitive card-based navigation.
+            </p>
 
-    <div class="card" onclick="location.href='animal-race.html'">
-      <div class="icon"></div>
-      <div class="text">
-        <div class="title">Animal Race</div>
-        <div class="subtitle">Last place drinks</div>
-      </div>
+            <div class="ui-specs">
+                <div class="spec-item">
+                    <span class="label">Color Palette</span>
+                    <div class="color-palette">
+                        <div class="color-swatch" style="background: #FFD700;"></div>
+                        <div class="color-swatch" style="background: #FF8C00;"></div>
+                        <div class="color-swatch" style="background: #1F1F1F;"></div>
+                        <div class="color-swatch" style="background: #0F0F0F;"></div>
+                    </div>
+                </div>
+                <div class="spec-item">
+                    <span class="label">Typography</span>
+                    <div style="font-weight: 700; font-size: 20px;">Quicksand</div>
+                    <div style="color: #555; font-size: 14px;">Bold / Medium</div>
+                </div>
+            </div>
+        </div>
+
     </div>
-
-    <div class="card">
-      <div class="icon"></div>
-      <div class="text">
-        <div class="title">Ladder Pick</div>
-        <div class="subtitle">Random result</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icon"></div>
-      <div class="text">
-        <div class="title">Tug of War</div>
-        <div class="subtitle">Losing team drinks</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icon"></div>
-      <div class="text">
-        <div class="title">Crocodile Teeth</div>
-        <div class="subtitle">Don’t get bitten</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icon"></div>
-      <div class="text">
-        <div class="title">Balloon Pop</div>
-        <div class="subtitle">Last to pop drinks</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icon"></div>
-      <div class="text">
-        <div class="title">Slot Machine</div>
-        <div class="subtitle">3 beers = drink</div>
-      </div>
-    </div>
-
-    <div class="card">
-      <div class="icon"></div>
-      <div class="text">
-        <div class="title">Card Game</div>
-        <div class="subtitle">Pick the beer card</div>
-      </div>
-    </div>
-
-  </div>
-
-</div>
 
 </body>
 </html>
